@@ -26,5 +26,6 @@ EXPOSE 9080/tcp 9443/tcp
 
 WORKDIR /var/lib/unifi-voip
 
-ENTRYPOINT ["/usr/bin/java", "-Xmx1024M", "-jar", "/usr/lib/unifi-voip/lib/ace.jar"]
-CMD ["start"]
+RUN service unifi-voip start
+#ENTRYPOINT ["/usr/bin/java", "-Xmx1024M", "-jar", "/usr/lib/unifi-voip/lib/ace.jar"]
+#CMD [""]
