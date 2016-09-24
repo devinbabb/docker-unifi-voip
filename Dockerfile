@@ -18,8 +18,8 @@ RUN echo "deb http://www.ubnt.com/downloads/unifi-voip/stage/debian stable ubiqu
 
 RUN apt-get update && \
     apt-get install binutils jsvc mongodb-server unifi-voip -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get clean
+##    rm -rf /var/lib/apt/lists/*
 
 RUN ln -s /var/lib/unifi-voip /usr/lib/unifi-voip/data
 EXPOSE 9080/tcp 9443/tcp
