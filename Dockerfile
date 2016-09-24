@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 MAINTAINER Devin Babb <devin.babb@ubnt.com>
 
 VOLUME ["/var/lib/unifi-voip", "/var/log/unifi-voip", "/var/run/unifi-voip", "/usr/lib/unifi-voip/work"]
@@ -17,9 +17,9 @@ RUN echo "deb http://www.ubnt.com/downloads/unifi-voip/stage/debian stable ubiqu
 # RUN echo "#!/bin/sh\nexit 101" > /usr/sbin/policy-rc.d
 
 RUN apt-get update && \
-    apt-get install binutils jsvc mongodb-server unifi-voip -y && \
+    apt-get install binutils jsvc mongodb-server unifi-voip openjdk-7-jre-headless -y && \
     apt-get clean
-##    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*
 
 RUN ln -s /var/lib/unifi-voip /usr/lib/unifi-voip/data
 EXPOSE 9080/tcp 9443/tcp
