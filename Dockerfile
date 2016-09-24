@@ -18,7 +18,7 @@ RUN echo "deb http://www.ubnt.com/downloads/unifi-voip/stage/debian stable ubiqu
 
 RUN apt-get update && \
     apt-get install binutils jsvc mongodb-server unifi-voip openjdk-7-jre-headless -y && \
-    apt-get clean
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 RUN ln -s /var/lib/unifi-voip /usr/lib/unifi-voip/data
