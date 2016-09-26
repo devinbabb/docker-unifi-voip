@@ -11,6 +11,8 @@ RUN echo "deb http://www.ubnt.com/downloads/unifi-voip/stage/debian stable ubiqu
     /etc/apt/sources.list.d/100-ubnt.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv 52F815F3
 
+RUN echo "#!/bin/sh\nexit 101" > /usr/sbin/policy-rc.d
+
 RUN apt-get update && \
     apt-get install binutils jsvc mongodb-server unifi-voip openjdk-7-jre-headless -f -y&& \
     apt-get clean && \
