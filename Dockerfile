@@ -16,8 +16,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN ln -s /var/lib/unifi-voip /usr/lib/unifi-voip/data
-
 EXPOSE 9080/tcp 9443/tcp
 
 ENTRYPOINT ["/usr/bin/java", "-Xmx1024M", "-jar", "/usr/lib/unifi-voip/lib/ace.jar"]
